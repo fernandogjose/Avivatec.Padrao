@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Avivatec.Padrao.Application\Avivatec.Padrao.Application.csproj" />
+    <ProjectReference Include="..\Avivatec.Padrao.Helpers\Avivatec.Padrao.Helpers.csproj" />
+  </ItemGroup>
+
+</Project>
