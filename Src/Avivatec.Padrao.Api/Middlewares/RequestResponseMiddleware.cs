@@ -44,7 +44,15 @@ namespace Avivatec.Padrao.Api.Middlewares
                         var idUsuario = RecuperaIdUsuario(request);
                         if (idUsuario > 0)
                         {
-                            dataSource = dataSource.Replace("}", ",\"IdUsuarioCadastro\":\"" + idUsuario + "\",\"IdUsuarioAlteracao\":\"" + idUsuario + "\"}");
+                            if (dataSource == "{}")
+                            {
+                                dataSource = dataSource.Replace("}", "\"IdUsuarioCadastro\":" + idUsuario + ",\"IdUsuarioAlteracao\":" + idUsuario + "}");
+                            }
+                            else
+                            {
+                                dataSource = dataSource.Replace("}", ",\"IdUsuarioCadastro\":" + idUsuario + ",\"IdUsuarioAlteracao\":" + idUsuario + "}");
+                            }  
+                            
                             var requestContent = new StringContent(dataSource, Encoding.UTF8, "application/json");
                             stream = await requestContent.ReadAsStreamAsync();
                             notModified = false;
