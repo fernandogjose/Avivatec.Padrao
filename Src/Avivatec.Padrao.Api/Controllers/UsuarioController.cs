@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Avivatec.Padrao.Application.Cqrs.Common;
 using Avivatec.Padrao.Application.Cqrs.Usuarios.Commands.AdicionarUsuario;
@@ -8,7 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Avivatec.Padrao.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [ApiVersion("1.0")]
+    [Route("api/v{v:apiVersion}/[controller]")]
     [ApiController]
     public class UsuarioController : ControllerBase
     {
@@ -30,7 +30,7 @@ namespace Avivatec.Padrao.Api.Controllers
             return "value";
         }
 
-        // POST: api/Usuario
+        // POST: api/v1.0/Usuario
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] AdicionarUsuarioCommand adicionarUsuarioCommand)
         {
